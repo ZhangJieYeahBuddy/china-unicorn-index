@@ -1,3 +1,7 @@
+![Banner](banner.png)
+
+Language: **[ENG](README.md) 🇬🇧 | [中文](README_zh.md)** 🇨🇳
+
 # China Unicorn Index
 
 ```
@@ -8,7 +12,7 @@
 
 ## Background
 
-An application built on `R` + `Shiny` which integrates with `Neo4j` graph database and shipped in `Docker`. Data is extracted from Hurun.net
+An application built on `R` + `Shiny` which integrates with `Neo4j` graph database and shipped in `Docker`. Data is extracted from Hurun Report
 ([English](https://www.hurun.net/EN/HuList/Unilist?num=ZUDO23612EaU) |
 [Chinese](http://www.hurun.net/CN/HuList/Unilist?num=ZUDO23612EaU)),
 which published an index of China unicorns (company with more than 10 billions in valuation).
@@ -22,14 +26,19 @@ The purpose of this exercise is to provide a demonstration of **connecting R to 
 ```bash
 git clone https://github.com/bj-sodas/china-unicorn-index.git
 cd china-unicorn-index
+## Note: Replace CRAN mirror url (https://cran.r-project.org/mirrors.html) with the one that is closest to you. ---
 docker build -t china-unicorn-index .
 ```
 
-*Note: Replace [CRAN mirror url](https://cran.r-project.org/mirrors.html) with the one that is closest to you.*
+Or pull image from Github package registry
+
+```bash
+docker pull docker.pkg.github.com/bj-sodas/china-unicorn-index/china-unicorn-index:latest
+```
 
 #### Configuration
 
-We are required to create a config file named `config.yml` in your directory. It is used for Shiny app to locate Neo4j database and authentication information.
+We are required to create a config file named `config.yml` in your directory. It is used for Shiny app to locate Neo4j database and authentication information. A [sample](config.yml.sample) is provided in this repository.
 
 ```yaml
 default:
